@@ -4,6 +4,9 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Principal {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -18,9 +21,6 @@ public class Principal {
         meuFilme.avalia(10);
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
-        //meuFilme.somaDasAvaliacoes = 10;
-        //meuFilme.totalDeAvaliacoes = 1;
-        //System.out.println(meuFilme.pegaMedia());
 
         Serie lost = new Serie();
         lost.setNome("Lost");
@@ -50,5 +50,20 @@ public class Principal {
         episodio.setSerie(lost);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        var filmeLuiz = new Filme("Dogville");
+        filmeLuiz.setDuracaoEmMinutos(201);
+        filmeLuiz.setAnoDeLancamento(2003);
+        filmeLuiz.avalia(10);
+
+        List<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeLuiz);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+
+        System.out.println("quantidade de filmes adicionados : " + listaDeFilmes.size());
+        System.out.println(listaDeFilmes);
+        System.out.printf("Primeiro filme da lista é: %s e o toString() do primeiro filme é: %s", listaDeFilmes.get(0).getNome(), listaDeFilmes.get(0).toString());
+
     }
 }
